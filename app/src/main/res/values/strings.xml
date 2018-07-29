@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">StoreApp</string>
+
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <string name="action_delete_all_entries">Delete All Products</string>
+
+    <string name="editor_activity_title_new_product">Add a Product</string>
+
+    <string name="action_save">Save</string>
+
+    <string name="action_delete">Delete</string>
+
+    <string name="category_overview">Overview</string>
+
+    <string name="hint_product_name">Name</string>
+
+    <string name="hint_product_price">Price</string>
+
+    <string name="hint_product_quantity">Quantity</string>
+
+    <string name="product_supplier">Product supplier</string>
+
+    <string name="hint_product_phone_number">Number</string>
+</resources>
