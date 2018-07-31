@@ -52,8 +52,8 @@ public class CatalogActivity extends AppCompatActivity {
                 StoreEntry.COLUMN_PRODUCT_NAME,
                 StoreEntry.COLUMN_PRODUCT_SUPPLIER_NAME,
                 StoreEntry.COLUMN_PRODUCT_SUPPLIER_PHONE_NUMBER,
-                String.valueOf(StoreEntry.COLUMN_PRODUCT_PRICE),
-                String.valueOf(StoreEntry.COLUMN_PRODUCT_QUANTITY)};
+                StoreEntry.COLUMN_PRODUCT_PRICE,
+                StoreEntry.COLUMN_PRODUCT_QUANTITY};
 
         Cursor cursor = db.query(
                 StoreEntry.TABLE_NAME,   // The table to query
@@ -85,8 +85,8 @@ public class CatalogActivity extends AppCompatActivity {
             while (cursor.moveToNext()) {
                 int currentID = cursor.getInt(idColumnIndex);
                 String currentName = cursor.getString(nameColumnIndex);
-                int currentPrice = cursor.getInt(priceColumnIndex);
-                int currentQuantity = cursor.getInt(quantityColumnIndex);
+                String currentPrice = cursor.getString(priceColumnIndex);
+                String currentQuantity = cursor.getString(quantityColumnIndex);
                 String currentSupplierName = cursor.getString(supplierNameColumnIndex);
                 String currentsupplierPhoneNumber = cursor.getString(supplierPhoneNumberColumnIndex);
                 displayView.append(("\n" + currentID + " - " +
@@ -109,8 +109,8 @@ public class CatalogActivity extends AppCompatActivity {
         values.put(StoreEntry.COLUMN_PRODUCT_NAME, "Laptop");
         values.put(StoreEntry.COLUMN_PRODUCT_SUPPLIER_NAME, "Asmaa");
         values.put(StoreEntry.COLUMN_PRODUCT_SUPPLIER_PHONE_NUMBER, "01234");
-        values.put(String.valueOf(StoreEntry.COLUMN_PRODUCT_PRICE), 10000);
-        values.put(String.valueOf(StoreEntry.COLUMN_PRODUCT_QUANTITY), 1);
+        values.put(StoreEntry.COLUMN_PRODUCT_PRICE, "10");
+        values.put(StoreEntry.COLUMN_PRODUCT_QUANTITY, "10");
 
         long newRowId = db.insert(StoreEntry.TABLE_NAME, null, values);
     }

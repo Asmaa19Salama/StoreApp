@@ -15,9 +15,9 @@ public final class StoreContract {
 
         public final static String COLUMN_PRODUCT_NAME ="name";
 
-        public final static int COLUMN_PRODUCT_PRICE = 0;
+        public final static String COLUMN_PRODUCT_PRICE ="default";
 
-        public final static int COLUMN_PRODUCT_QUANTITY = 0;
+        public final static String COLUMN_PRODUCT_QUANTITY = "default";
 
         public final static String COLUMN_PRODUCT_SUPPLIER_NAME = "default";
 

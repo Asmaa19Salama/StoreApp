@@ -51,9 +51,7 @@ public class EditorActivity extends AppCompatActivity {
     private void insertProduct() {
         String nameString = mNameEditText.getText().toString().trim();
         String priceString = mPriceEditText.getText().toString().trim();
-        int priceInt = Integer.parseInt(priceString);
         String quantityString = mQuantityEditText.getText().toString().trim();
-        int quantityInt = Integer.parseInt(quantityString);
         String supplierNameString = mSupplierNameEditText.getText().toString().trim();
         String supplierPhoneNumberString = mSupplierPhoneNumberEditText.getText().toString().trim();
 
@@ -65,8 +63,8 @@ public class EditorActivity extends AppCompatActivity {
         values.put(StoreContract.StoreEntry.COLUMN_PRODUCT_NAME, nameString);
         values.put(StoreContract.StoreEntry.COLUMN_PRODUCT_SUPPLIER_NAME, supplierNameString);
         values.put(StoreContract.StoreEntry.COLUMN_PRODUCT_SUPPLIER_PHONE_NUMBER, supplierPhoneNumberString);
-        values.put(String.valueOf(StoreContract.StoreEntry.COLUMN_PRODUCT_PRICE), priceString);
-        values.put(String.valueOf(StoreContract.StoreEntry.COLUMN_PRODUCT_QUANTITY), quantityString);
+        values.put(StoreContract.StoreEntry.COLUMN_PRODUCT_PRICE, priceString);
+        values.put(StoreContract.StoreEntry.COLUMN_PRODUCT_QUANTITY, quantityString);
 
         long newRowId = db.insert(StoreContract.StoreEntry.TABLE_NAME, null, values);
 
