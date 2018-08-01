@@ -41,11 +41,11 @@ public class EditorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
 
-        mNameEditText = (EditText) findViewById(R.id.edit_product_name);
-        mPriceEditText = (EditText) findViewById(R.id.edit_product_price);
-        mQuantityEditText = (EditText) findViewById(R.id.edit_product_quantity);
-        mSupplierNameEditText = (EditText) findViewById(R.id.edit_product_supplier_name);
-        mSupplierPhoneNumberEditText = (EditText) findViewById(R.id.edit_product_supplier_phone_number);
+        mNameEditText = findViewById(R.id.edit_product_name);
+        mPriceEditText = findViewById(R.id.edit_product_price);
+        mQuantityEditText = findViewById(R.id.edit_product_quantity);
+        mSupplierNameEditText = findViewById(R.id.edit_product_supplier_name);
+        mSupplierPhoneNumberEditText = findViewById(R.id.edit_product_supplier_phone_number);
     }
 
     private void insertProduct() {

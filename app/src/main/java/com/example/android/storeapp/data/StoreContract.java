@@ -13,15 +13,15 @@ public final class StoreContract {
 
         public final static String _ID = BaseColumns._ID;
 
-        public final static String COLUMN_PRODUCT_NAME ="name";
+        public final static String COLUMN_PRODUCT_NAME ="product_name";
 
-        public final static String COLUMN_PRODUCT_PRICE ="default";
+        public final static String COLUMN_PRODUCT_PRICE ="product_price";
 
-        public final static String COLUMN_PRODUCT_QUANTITY = "default";
+        public final static String COLUMN_PRODUCT_QUANTITY = "product_quantity";
 
-        public final static String COLUMN_PRODUCT_SUPPLIER_NAME = "default";
+        public final static String COLUMN_PRODUCT_SUPPLIER_NAME = "product_supplier_name";
 
-        public final static String COLUMN_PRODUCT_SUPPLIER_PHONE_NUMBER = "zero";
+        public final static String COLUMN_PRODUCT_SUPPLIER_PHONE_NUMBER = "product_supplier_phone_number";
 
     }
 
