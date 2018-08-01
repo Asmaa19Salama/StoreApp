@@ -69,7 +69,7 @@
             <EditText
                 android:id="@+id/edit_product_supplier_phone_number"
                 android:hint="@string/hint_product_phone_number"
-                android:inputType="number"
+                android:inputType="phone"
                 style="@style/EditorFieldStyle" />
         </LinearLayout>
     </LinearLayout>

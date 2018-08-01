@@ -10,7 +10,7 @@ public class StoreDbHelper extends SQLiteOpenHelper {
 
     public static final String LOG_TAG = StoreDbHelper.class.getSimpleName();
 
-    private static final String DATABASE_NAME = "shelter.db";
+    private static final String DATABASE_NAME = "product.db";
 
     private static final int DATABASE_VERSION = 1;
 
@@ -27,7 +27,7 @@ public class StoreDbHelper extends SQLiteOpenHelper {
                 + StoreEntry.COLUMN_PRODUCT_NAME + " TEXT NOT NULL, "
                 + StoreEntry.COLUMN_PRODUCT_SUPPLIER_NAME + " TEXT NOT NULL, "
                 + StoreEntry.COLUMN_PRODUCT_SUPPLIER_PHONE_NUMBER + " TEXT, "
-                + StoreEntry.COLUMN_PRODUCT_PRICE + " INTEGER NOT NULL, "
+                + StoreEntry.COLUMN_PRODUCT_PRICE + " REAL NOT NULL, "
                 + StoreEntry.COLUMN_PRODUCT_QUANTITY + " INTEGER NOT NULL DEFAULT 0);";
         db.execSQL(SQL_CREATE_PRODUCTS_TABLE);
     }
