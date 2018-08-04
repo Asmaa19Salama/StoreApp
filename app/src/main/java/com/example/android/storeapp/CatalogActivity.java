@@ -25,11 +25,7 @@ public class CatalogActivity extends AppCompatActivity implements
 
     private static final int PRODUCT_LOADER = 0;
 
-    /** Adapter for the ListView */
     ProductCursorAdapter mCursorAdapter;
-
-//    private StoreDbHelper mDbHelper;
-//    public SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +65,7 @@ public class CatalogActivity extends AppCompatActivity implements
         getLoaderManager().initLoader(PRODUCT_LOADER, null, this);
     }
 
-    private void insertPet() {
+    private void insertProduct() {
         ContentValues values = new ContentValues();
         values.put(StoreEntry.COLUMN_PRODUCT_NAME, "Laptop");
         values.put(StoreEntry.COLUMN_PRODUCT_PRICE, "10000");
@@ -95,7 +91,7 @@ public class CatalogActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_insert_dummy_data:
-                insertPet();
+                insertProduct();
                 return true;
             case R.id.action_delete_all_entries:
                 deleteAllProducts();

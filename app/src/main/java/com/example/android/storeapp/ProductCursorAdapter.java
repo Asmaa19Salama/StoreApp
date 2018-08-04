@@ -2,7 +2,6 @@ package com.example.android.storeapp;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,15 +34,6 @@ public class ProductCursorAdapter extends CursorAdapter {
 
         String productName = cursor.getString(nameColumnIndex);
 
-        /*
-        // If the pet breed is empty string or null, then use some default text
-        // that says "Unknown breed", so the TextView isn't blank.
-        if (TextUtils.isEmpty(petBreed)) {
-            petBreed = context.getString(R.string.unknown_breed);
-        }*/
-
-        // Update the TextViews with the attributes for the current pet
         nameTextView.setText(productName);
-        //summaryTextView.setText(petBreed);
     }
 }

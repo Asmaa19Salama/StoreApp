@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class EditorActivity extends AppCompatActivity implements
 
     private EditText mNameEditText;
     private EditText mPriceEditText;
-    private EditText mQuantityEditText;
+    public static EditText mQuantityEditText;
     private EditText mSupplierNameEditText;
     private EditText mSupplierPhoneNumberEditText;
 
@@ -44,7 +45,7 @@ public class EditorActivity extends AppCompatActivity implements
             return false;
         }
     };
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,41 @@ public class EditorActivity extends AppCompatActivity implements
         mQuantityEditText.setOnTouchListener(mTouchListener);
         mSupplierNameEditText.setOnTouchListener(mTouchListener);
         mSupplierPhoneNumberEditText.setOnTouchListener(mTouchListener);
+
+        Button callSupplier = findViewById(R.id.supplier);
+        callSupplier.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                String uri = "tel:" + mSupplierPhoneNumberEditText.getText().toString();
+                Intent intent = new Intent(String.valueOf(android.content.Intent.ACTION_VIEW));
+                intent.setData(Uri.parse(uri));
+                startActivity(intent);
+
+            }
+        });
+
+        Button decrease = findViewById(R.id.decrease);
+        decrease.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int x = Integer.parseInt(mQuantityEditText.getText().toString());
+                if (x > 0) {
+                    x--;
+                }
+                mQuantityEditText.setText(String.valueOf(x));
+
+            }
+        });
+
+        Button increase = findViewById(R.id.increase);
+        increase.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int x = Integer.parseInt(mQuantityEditText.getText().toString());
+                x++;
+                mQuantityEditText.setText(String.valueOf(x));
+
+            }
+        });
+
     }
 
     private void saveProduct() {
@@ -88,6 +124,23 @@ public class EditorActivity extends AppCompatActivity implements
                 TextUtils.isEmpty(nameString) && TextUtils.isEmpty(priceString) &&
                 TextUtils.isEmpty(quantityString) && TextUtils.isEmpty(supplier_name)
                 && TextUtils.isEmpty(supplier_phone_number)) {
+            return;
+        }
+
+        if (nameString.isEmpty()) {
+            Toast.makeText(this, "You should enter the product name.", Toast.LENGTH_LONG).show();
+            return;
+        } else if (priceString.isEmpty() || Integer.parseInt(priceString) < 0) {
+            Toast.makeText(this, "You should enter a valid price.", Toast.LENGTH_LONG).show();
+            return;
+        } else if (quantityString.isEmpty() || Integer.parseInt(quantityString) < 0) {
+            Toast.makeText(this, "You should enter a valid quantity.", Toast.LENGTH_LONG).show();
+            return;
+        } else if (supplier_name.isEmpty()) {
+            Toast.makeText(this, "You should enter the product supplier name.", Toast.LENGTH_LONG).show();
+            return;
+        } else if (supplier_phone_number.isEmpty()) {
+            Toast.makeText(this, "You should enter the product supplier phone number.", Toast.LENGTH_LONG).show();
             return;
         }
 
