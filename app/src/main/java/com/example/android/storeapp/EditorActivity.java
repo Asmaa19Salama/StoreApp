@@ -91,25 +91,40 @@ public class EditorActivity extends AppCompatActivity implements
         Button decrease = findViewById(R.id.decrease);
         decrease.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                int x = Integer.parseInt(mQuantityEditText.getText().toString());
-                if (x > 0) {
-                    x--;
+                if (!mQuantityEditText.getText().toString().equals("")) {
+                    int x = Integer.parseInt(mQuantityEditText.getText().toString());
+                    if (x > 0) {
+                        x--;
+                    }
+                    mQuantityEditText.setText(String.valueOf(x));
                 }
-                mQuantityEditText.setText(String.valueOf(x));
-
             }
         });
 
         Button increase = findViewById(R.id.increase);
         increase.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                int x = Integer.parseInt(mQuantityEditText.getText().toString());
-                x++;
-                mQuantityEditText.setText(String.valueOf(x));
-
+                int x;
+                if (!mQuantityEditText.getText().toString().equals("")) {
+                    x = Integer.parseInt(mQuantityEditText.getText().toString());
+                    x++;
+                    mQuantityEditText.setText(String.valueOf(x));
+                }
             }
         });
 
+        Button decreaseSale = findViewById(R.id.saleButton);
+        decreaseSale.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (!EditorActivity.mQuantityEditText.getText().toString().equals("")) {
+                    int x = Integer.parseInt(EditorActivity.mQuantityEditText.getText().toString());
+                    if (x > 0) {
+                        x--;
+                    }
+                    EditorActivity.mQuantityEditText.setText(String.valueOf(x));
+                }
+            }
+        });
     }
 
     private void saveProduct() {
@@ -181,6 +196,8 @@ public class EditorActivity extends AppCompatActivity implements
                         Toast.LENGTH_SHORT).show();
             }
         }
+
+        finish();
     }
 
     @Override
@@ -192,7 +209,6 @@ public class EditorActivity extends AppCompatActivity implements
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-
         if (mCurrentProductUri == null) {
             MenuItem menuItem = menu.findItem(R.id.action_delete);
             menuItem.setVisible(false);
@@ -206,7 +222,6 @@ public class EditorActivity extends AppCompatActivity implements
         switch (item.getItemId()) {
             case R.id.action_save:
                 saveProduct();
-                finish();
                 return true;
             case R.id.action_delete:
                 showDeleteConfirmationDialog();
@@ -269,7 +284,6 @@ public class EditorActivity extends AppCompatActivity implements
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-
         if (cursor == null || cursor.getCount() < 1) {
             return;
         }
